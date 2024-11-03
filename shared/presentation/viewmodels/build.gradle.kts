@@ -26,6 +26,23 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             //put your multiplatform dependencies here
+            api(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.composeVM)
+
+            // ViewModel support in common code
+            implementation(libs.androidx.lifecycle.viewmodel)
+
+            implementation(project(":shared:data:user"))
+
+            implementation(project(":shared:domain:user"))
+
+            implementation(project(":shared:entity:user"))
+        }
+
+        androidMain.dependencies {
+            implementation(libs.koin.android)
+            implementation(libs.koin.androidx.compose)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
