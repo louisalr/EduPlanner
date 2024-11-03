@@ -38,6 +38,8 @@ kotlin {
             api(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.koin.composeVM)
+
+            implementation(project(":shared:presentation:viewmodels"))
         }
 
         androidMain.dependencies {
