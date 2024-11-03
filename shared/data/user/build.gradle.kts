@@ -18,7 +18,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "shared"
+            baseName = "user"
             isStatic = true
         }
     }
@@ -34,7 +34,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.edu.planner"
+    namespace = "com.edu.shared.data.user"
     compileSdk = 34
     defaultConfig {
         minSdk = 24

@@ -17,3 +17,13 @@ dependencyResolutionManagement {
 rootProject.name = "EduPlanner"
 include(":androidApp")
 include(":shared")
+include(":shared:ui")
+include(":shared:presentation")
+include(":shared:presentation:ui")
+include(":shared:data")
+include(":shared:domain")
+include(":shared:entity")
+include(":shared:data:user")
+include(":shared:domain:user")
+include(":shared:entity:user")
+include(":shared:presentation:viewmodels")
