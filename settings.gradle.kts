@@ -17,3 +17,6 @@ dependencyResolutionManagement {
 rootProject.name = "EduPlanner"
 include(":androidApp")
 include(":shared")
+include(":shared:ui")
+include(":shared:presentation")
+include(":shared:presentation:ui")

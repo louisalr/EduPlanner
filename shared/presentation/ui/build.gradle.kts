@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.compose.compiler)
 }
 
 kotlin {
@@ -18,14 +20,25 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "shared"
+            baseName = "ui"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            //put your multiplatform dependencies here
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material)
+            implementation(compose.ui)
+            implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
+
+            //Koin
+        }
+
+        androidMain.dependencies {
+
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -34,7 +47,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.edu.planner"
+    namespace = "com.edu.shared.presentation.ui"
     compileSdk = 34
     defaultConfig {
         minSdk = 24

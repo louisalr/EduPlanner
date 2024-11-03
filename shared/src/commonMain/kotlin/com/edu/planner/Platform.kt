@@ -1,7 +1,0 @@
-package com.edu.planner
-
-interface Platform {
-    val name: String
-}
-
-expect fun getPlatform(): Platform
