@@ -26,6 +26,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api(libs.koin.core)
+            implementation("androidx.security:security-crypto:1.1.0-alpha03")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
