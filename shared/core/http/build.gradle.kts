@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    kotlin("plugin.serialization")
 }
 
 kotlin {
@@ -19,7 +18,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "user"
+            baseName = "http"
             isStatic = true
         }
     }
@@ -27,19 +26,24 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api(libs.koin.core)
-            implementation("androidx.security:security-crypto:1.1.0-alpha03")
-            implementation(libs.multiplatform.settings)
+            implementation(libs.ktor.client.core)
+
             implementation("io.ktor:ktor-client-auth:3.0.0")
             implementation("io.ktor:ktor-client-logging:3.0.0")
-            //implementation(project(":shared:core:preferences"))
+            implementation("io.ktor:ktor-client-content-negotiation:3.0.0") // Ajouté pour la négociation de contenu
+            implementation("io.ktor:ktor-serialization-kotlinx-json:3.0.0") // Pour la sérialisation JSON
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0") // Pour la sérialisation JSON
 
-            implementation(project(":shared:core:http"))
+            implementation(libs.multiplatform.settings)
+            implementation(project(":shared:core:preferences"))
         }
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)
+
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
+            //implementation("io.ktor:ktor-client-ios:$3.0.0")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -48,7 +52,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.edu.shared.data.user"
+    namespace = "com.edu.shared.http"
     compileSdk = 34
     defaultConfig {
         minSdk = 24

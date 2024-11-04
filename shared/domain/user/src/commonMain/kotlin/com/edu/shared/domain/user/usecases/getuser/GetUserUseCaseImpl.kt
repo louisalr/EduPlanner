@@ -5,7 +5,7 @@ import com.edu.shared.data.user.repo.UserRepository
 class GetUserUseCaseImpl(
     private val userRepository: UserRepository
 ): GetUserUseCase{
-    override fun invoke(): String {
+    override suspend fun invoke(): String {
         return userRepository.getUser()
     }
 
