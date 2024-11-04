@@ -34,6 +34,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
 
             implementation(project(":shared:core:http"))
+            implementation(project(":shared:core:preferences"))
 
             implementation(project(":shared:data:user"))
 
