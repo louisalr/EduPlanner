@@ -28,6 +28,17 @@ kotlin {
             api(libs.koin.core)
             implementation("androidx.security:security-crypto:1.1.0-alpha03")
             implementation(libs.multiplatform.settings)
+            implementation("io.ktor:ktor-client-auth:3.0.0")
+            implementation("io.ktor:ktor-client-logging:3.0.0")
+            //implementation(project(":shared:core:preferences"))
+
+            implementation(project(":shared:core:http"))
+        }
+        androidMain.dependencies {
+            implementation(libs.ktor.client.okhttp)
+        }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
