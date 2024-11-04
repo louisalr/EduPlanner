@@ -18,16 +18,24 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "user"
+            baseName = "http"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            api(libs.koin.core)
-            implementation("androidx.security:security-crypto:1.1.0-alpha03")
-            implementation(libs.multiplatform.settings)
+            implementation(libs.ktor.client.core)
+
+            implementation("io.ktor:ktor-client-auth:3.0.0")
+            implementation("io.ktor:ktor-client-logging:3.0.0")
+            implementation(project(":shared:core:preferences"))
+        }
+        androidMain.dependencies {
+            implementation(libs.ktor.client.okhttp)
+        }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -36,7 +44,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.edu.shared.data.user"
+    namespace = "com.edu.shared.http"
     compileSdk = 34
     defaultConfig {
         minSdk = 24

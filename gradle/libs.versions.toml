@@ -10,6 +10,10 @@ composeMultiplatform  = "1.7.0"
 koin = "4.0.0"
 lifecycleViewmodel = "2.8.3"
 
+settings = "1.2.0"
+
+ktor = "3.0.0"
+
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
@@ -29,6 +33,12 @@ koin-composeVM = { module = "io.insert-koin:koin-compose-viewmodel", version.ref
 
 # Lifecycle ViewModel
 androidx-lifecycle-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleViewmodel" }
+
+multiplatform-settings = { group = "com.russhwolf", name="multiplatform-settings", version.ref= "settings"}
+
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -18,14 +18,13 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "user"
+            baseName = "preferences"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            api(libs.koin.core)
             implementation("androidx.security:security-crypto:1.1.0-alpha03")
             implementation(libs.multiplatform.settings)
         }
@@ -36,7 +35,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.edu.shared.data.user"
+    namespace = "com.edu.shared.core.preferences"
     compileSdk = 34
     defaultConfig {
         minSdk = 24
