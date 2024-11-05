@@ -18,36 +18,15 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "viewmodels"
+            baseName = "courses"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            //put your multiplatform dependencies here
             api(libs.koin.core)
-            implementation(libs.koin.compose)
-            implementation(libs.koin.composeVM)
-
-            // ViewModel support in common code
-            implementation(libs.androidx.lifecycle.viewmodel)
-
-            implementation(project(":shared:core:http"))
-            implementation(project(":shared:core:preferences"))
-
-            implementation(project(":shared:data:user"))
             implementation(project(":shared:data:courses"))
-
-            implementation(project(":shared:domain:user"))
-            implementation(project(":shared:domain:courses"))
-
-            implementation(project(":shared:entity:user"))
-        }
-
-        androidMain.dependencies {
-            implementation(libs.koin.android)
-            implementation(libs.koin.androidx.compose)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -56,7 +35,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.edu.shared.presentation.viewmodels"
+    namespace = "com.edu.shared.domain.courses"
     compileSdk = 34
     defaultConfig {
         minSdk = 24
