@@ -1,7 +1,9 @@
 package com.edu.shared.presentation.viewmodels.di
 
 import com.edu.shared.core.preferences.di.encryptedPreferencesModule
+import com.edu.shared.data.courses.di.coursesRepositoryModule
 import com.edu.shared.data.user.di.userRepositoryModule
+import com.edu.shared.domain.courses.di.coursesDomainModule
 import com.edu.shared.domain.user.di.userDomainModule
 import com.edu.shared.entity.user.di.userEntityModule
 import com.edu.shared.http.di.httpModule
@@ -15,8 +17,10 @@ val viewModelsModule = module {
     includes(encryptedPreferencesModule)
 
     includes(userRepositoryModule)
+    includes(coursesRepositoryModule)
 
     includes(userDomainModule)
+    includes(coursesDomainModule)
 
     includes(userEntityModule)
 
