@@ -27,12 +27,15 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+
+            implementation("com.kizitonwose.calendar:compose-multiplatform:2.6.0-beta01")
 
             //Koin
             api(libs.koin.core)
