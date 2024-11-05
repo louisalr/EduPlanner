@@ -51,7 +51,7 @@ android {
     namespace = "com.edu.shared.data.user"
     compileSdk = 34
     defaultConfig {
-        minSdk = 24
+        minSdk = 26
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
