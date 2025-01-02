@@ -34,6 +34,7 @@ kotlin {
             //implementation(project(":shared:core:preferences"))
 
             implementation(project(":shared:core:http"))
+            implementation(project(":shared:core:preferences"))
         }
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)
