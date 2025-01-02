@@ -6,4 +6,6 @@ interface LocalPrefsRepository{
     suspend fun getTokens(): LocalPrefsRepositoryModel
 
     suspend fun setTokens(token: String, refreshToken: String)
+
+    suspend fun deleteTokens()
 }

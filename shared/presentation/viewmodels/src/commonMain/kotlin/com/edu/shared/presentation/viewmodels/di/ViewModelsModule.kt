@@ -14,7 +14,8 @@ import com.edu.shared.data.authentication.di.authRepositoryModule
 import com.edu.shared.domain.authentication.di.authDomainModule
 import com.edu.shared.presentation.viewmodels.features.login.LoginViewModel
 import com.edu.shared.presentation.viewmodels.features.login.mappers.LoginUiMappers
-
+import com.edu.shared.presentation.viewmodels.features.splash.SplashViewModel
+import com.edu.shared.presentation.viewmodels.features.splash.mappers.SplashUiMappers
 val viewModelsModule = module {
 
     includes(httpModule)
@@ -34,4 +35,7 @@ val viewModelsModule = module {
     factoryOf(::LoginViewModel)
 
     factoryOf(::LoginUiMappers)
+
+    factoryOf(::SplashViewModel)
+    factoryOf(::SplashUiMappers)
 }
