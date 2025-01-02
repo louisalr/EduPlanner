@@ -1,7 +1,9 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    kotlin("plugin.serialization")
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.ktorfit)
 }
 
 kotlin {
@@ -26,6 +28,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            implementation(libs.ktorfit.lib)
             implementation("io.ktor:ktor-client-auth:3.0.0")
             implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0") // Version à vérifier
             implementation(project(":shared:core:http"))

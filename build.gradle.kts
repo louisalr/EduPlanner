@@ -5,5 +5,8 @@ plugins {
     alias(libs.plugins.kotlinAndroid).apply(false)
     alias(libs.plugins.kotlinMultiplatform).apply(false)
     alias(libs.plugins.compose.compiler).apply(false)
-    kotlin("plugin.serialization") version "1.9.0" apply false
+    alias(libs.plugins.kotlinSerialization) apply false
+    alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.ktorfit) apply false
+
 }

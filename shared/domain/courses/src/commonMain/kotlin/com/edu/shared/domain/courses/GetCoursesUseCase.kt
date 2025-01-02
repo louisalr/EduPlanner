@@ -1,9 +1,9 @@
 package com.edu.shared.domain.courses
 
-import com.edu.shared.data.courses.CoursesRepository
+import com.edu.shared.data.courses.CoursesRepositoryImpl
 
 class GetCoursesUseCase(
-    private val coursesRepository: CoursesRepository
+    private val coursesRepository: CoursesRepositoryImpl
 ){
 
     suspend operator fun invoke(){

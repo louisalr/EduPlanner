@@ -2,6 +2,7 @@ package com.edu.shared.http
 
 import com.edu.shared.core.preferences.EncryptedPreferences
 import io.ktor.client.HttpClient
+import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.auth.Auth
 import io.ktor.client.plugins.auth.providers.BearerTokens
 import io.ktor.client.plugins.auth.providers.bearer
@@ -20,6 +21,14 @@ class HttpClientConfig(private val sharedPreferences: EncryptedPreferences) {
                     prettyPrint = true
                     isLenient = true
                 })
+            }
+            install(HttpTimeout) {
+                // Délai d'attente de connexion
+                connectTimeoutMillis = 30000 // 10 secondes
+                // Délai d'attente pour lire la réponse
+                requestTimeoutMillis = 30000 // 10 secondes
+
+                socketTimeoutMillis = 30000
             }
             install(Auth) {
                 bearer {
@@ -42,11 +51,11 @@ class HttpClientConfig(private val sharedPreferences: EncryptedPreferences) {
     }
 
     private fun getAccessToken(): String {
-        return sharedPreferences.getSharedPreferences("token").getString("token", "") ?: ""
+        return sharedPreferences.getSharedPreferences("token").getString("token", "")
     }
 
     private fun getRefreshToken(): String {
-        return sharedPreferences.getSharedPreferences("refresh_token").getString("refresh_token", "") ?: ""
+        return sharedPreferences.getSharedPreferences("refresh_token").getString("refresh_token", "")
     }
 
     private fun refreshAccessToken(): BearerTokens? {
