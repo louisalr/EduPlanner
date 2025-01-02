@@ -2,7 +2,7 @@ package com.edu.shared.presentation.ui
 
 import androidx.compose.runtime.Composable
 import com.edu.shared.presentation.ui.di.mainModules
-import com.edu.shared.presentation.ui.home.HomeScreen
+import com.edu.shared.presentation.ui.login.LoginScreen
 import org.koin.compose.KoinApplication
 import org.koin.dsl.KoinAppDeclaration
 
@@ -12,7 +12,7 @@ fun App(
 ){
 
     KoinApplication(application= mainModules(appDeclaration)){
-        HomeScreen()
+        LoginScreen()
     }
 
 }

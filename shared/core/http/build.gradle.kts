@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.ktorfit)
 }
 
 kotlin {
@@ -27,7 +28,7 @@ kotlin {
         commonMain.dependencies {
             api(libs.koin.core)
             implementation(libs.ktor.client.core)
-
+            implementation(libs.ktorfit.lib)
             implementation("io.ktor:ktor-client-auth:3.0.0")
             implementation("io.ktor:ktor-client-logging:3.0.0")
             implementation("io.ktor:ktor-client-content-negotiation:3.0.0") // Ajouté pour la négociation de contenu

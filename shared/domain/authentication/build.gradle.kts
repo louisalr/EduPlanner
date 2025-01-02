@@ -1,9 +1,6 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.kotlinSerialization)
-    alias(libs.plugins.ktorfit)
 }
 
 kotlin {
@@ -21,17 +18,16 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "courses"
+            baseName = "authentication"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.ktorfit.lib)
-            implementation("io.ktor:ktor-client-auth:3.0.0")
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0") // Version à vérifier
-            implementation(project(":shared:core:http"))
+            implementation(libs.koin.core)
+
+            implementation(project(":shared:data:authentication"))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -40,7 +36,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.edu.shared.data.courses"
+    namespace = "com.edu.shared.domain.authentication"
     compileSdk = 34
     defaultConfig {
         minSdk = 26

@@ -36,9 +36,11 @@ kotlin {
             implementation(project(":shared:core:http"))
             implementation(project(":shared:core:preferences"))
 
+            implementation(project(":shared:data:authentication"))
             implementation(project(":shared:data:user"))
             implementation(project(":shared:data:courses"))
 
+            implementation(project(":shared:domain:authentication"))
             implementation(project(":shared:domain:user"))
             implementation(project(":shared:domain:courses"))
 
