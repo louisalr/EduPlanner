@@ -25,4 +25,10 @@ class LocalPrefsRepositoryImpl(
         settings.putString("token", token)
         settings.putString("refresh_token", refreshToken)
     }
+
+    override suspend fun deleteTokens() {
+        val settings = encryptedPreferences.getSharedPreferences("token")
+        settings.remove("token")
+        settings.remove("refresh_token")
+    }
 }
