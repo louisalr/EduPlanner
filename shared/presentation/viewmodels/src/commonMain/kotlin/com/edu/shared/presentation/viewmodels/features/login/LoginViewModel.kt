@@ -21,7 +21,7 @@ class LoginViewModel(
     private val _viewState = MutableStateFlow(LoginUiStateModel())
     val viewState: StateFlow<LoginUiStateModel> = _viewState.asStateFlow()
 
-    fun onValueChange(value: String, field: LoginTextField){
+    fun onValueChange(field: LoginTextField, value: String){
         val currentState = viewState.value.state as? LoginUiStateModel.State.Init ?: return
 
         _viewState.update {
